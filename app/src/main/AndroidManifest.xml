@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.afi.actionforimpact"
+    android:targetSandboxVersion="1">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.MICROPHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name="com.afi.actionforimpact.LexApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.afi.actionforimpact.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" -->
+        <!-- android:value="false"/> -->
+        <!-- tools:ignore="HardcodedDebugMode" -->
+        <receiver android:name="com.afi.lexsdk.services.DownloadStatusBroadcastJava">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.afi.actionforimpact.HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="lex.infosysapps.com"
+                    android:scheme="https" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.afi.actionforimpact.PlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.afi.actionforimpact.DownloadsWebView"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.afi.actionforimpact.TocWebView"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.afi.actionforimpact.SettingsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.afi.actionforimpact.ChatBotActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.afi.actionforimpact.ExternalPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.afi.actionforimpact.OpenRapActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <service
+            android:name="com.afi.actionforimpact.services.DeleteDecryptedService"
+            android:exported="false" />
+        <service
+            android:name="com.afi.lexsdk.services.EncrpytDecryptService"
+            android:exported="false" />
+        <service
+            android:name="com.afi.actionforimpact.services.TelemetryLearningService"
+            android:exported="false" />
+        <service
+            android:name="com.afi.actionforimpact.services.TelemetryPlayerService"
+            android:exported="false" />
+        <service
+            android:name="com.afi.actionforimpact.services.TelemetryQuizSubmission"
+            android:exported="false" />
+
+        <activity
+            android:name="com.afi.actionforimpact.StreamingRTMP"
+            android:screenOrientation="landscape" />
+
+        <receiver
+            android:name="com.afi.actionforimpact.services.DatabaseChangedReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name=".DATABASE_CHANGED" />
+            </intent-filter>
+        </receiver> <!-- [END firebase_service] -->
+        <service
+            android:name="com.afi.actionforimpact.services.DownloadAllowedCheck"
+            android:exported="false" />
+    </application>
+
+</manifest>

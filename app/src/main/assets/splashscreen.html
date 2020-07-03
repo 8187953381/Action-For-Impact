@@ -1,0 +1,74 @@
+<html>
+<head>
+    <style>
+h2{
+
+    margin-top: calc( 50VH - 100px);
+    color: #f49c29;
+    font-size: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+
+}
+img {
+width: 50%;
+height: auto;
+
+}
+
+.splash {
+margin-top: 40vh;
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+}
+
+.appendMovingDots:after {
+    content: ' .';
+    animation: dots 3s steps(1, end) infinite;
+}
+@keyframes dots {
+    0%, 12.5% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    37.5% {
+        text-shadow: .5em 0;
+    }
+    50% {
+        text-shadow: .5em 0, 1em 0;
+    }
+    62.5% {
+        text-shadow: .5em 0, 1em 0, 1.5em 0;
+    }
+    75% {
+        text-shadow: .5em 0, 1em 0, 1.5em 0, 2em 0;
+    }
+    87.5%, 100%{
+        text-shadow: .5em 0, 1em 0, 1.5em 0, 2em 0, 2.5em;
+    }
+}
+</style>
+</head>
+<body style="width: 100%; margin:10px;">
+<div class="splash">
+<img src="action_for_impact_logo.png" alt="Smiley face" height="42" width="42">
+</div>
+<span class="appendMovingDots"
+      style="font-size: 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 40%;">Loading</span>
+
+
+</body>
+
+</html>
+

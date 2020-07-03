@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_learning"
+        android:icon="@drawable/navigator"
+        android:iconTint="@color/colorWhite"
+        app:showAsAction="withText"
+        android:title="Guided Learning"/>
+
+    <item
+        android:id="@+id/navigation_goals"
+        android:icon="@drawable/goals"
+        android:iconTint="@color/colorWhite"
+        app:showAsAction="withText"
+        android:title="Goals"/>
+    <item
+        android:id="@+id/navigation_assessment"
+        android:icon="@drawable/assessment"
+        app:showAsAction="withText"
+        android:title="Assessment"/>
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        app:showAsAction="withText"
+        android:title="Profile"/>
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="withText"
+        android:title="Search"/>
+
+
+
+</menu>
